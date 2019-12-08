@@ -1,11 +1,13 @@
 import {createStore, combineReducers} from 'redux';
 import videoReducer from './reducers/videoReducer';
-import videoDataReducer from './reducers/videoDataReducer'
+import videoDataReducer from './reducers/videoDataReducer';
+import videoCommentsReducer from './reducers/videoCommentsReducer'
 
 
 let reducer = combineReducers({
     videos: videoReducer,
-    videoDetail : videoDataReducer
+    videoDetail : videoDataReducer,
+    videoComments : videoCommentsReducer
 })
 
 let store = createStore(reducer);

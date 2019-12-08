@@ -13,7 +13,6 @@ function fetchVideos(store){
 }
 
 function fetchOneVideoDetails(videoId){
-    console.log("acc")
     let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${ MYTUBE_API.key}`;
     fetch(url)
     .then(res => res.json())
@@ -27,6 +26,16 @@ function fetchOneVideoDetails(videoId){
     })
 }
 
+function fetchComments(videoId){
+    let url = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies&videoId=${videoId}&key=${ MYTUBE_API.key}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => store.dispatch({
+        type : 'LOAD_COMMENTS',
+        data :res.items
+    }))
+}
+
 export {
-    fetchVideos, fetchOneVideoDetails
+    fetchVideos, fetchOneVideoDetails, fetchComments
 }
