@@ -5,6 +5,7 @@ function fetchVideos(store){
     fetch(url)
     .then(res => res.json())
     .then(res => {
+        console.log(res)
         store.dispatch({
             type: 'VIDEOS_LOADED',
             videos: res.items
