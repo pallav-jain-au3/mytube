@@ -16,12 +16,12 @@ class Comments extends Component {
   }
 
   render() {
-    console.log(
-      this.props.videoComments.length > 0
-        ? this.props.videoComments[0].snippet.topLevelComment.snippet
-        : "loading"
-    );
-    let comments = this.props.videoComments.map((comment, index) => {
+    let comments
+    if (!this.props.videoComments){
+       comments = "No comments";
+    }
+    else{
+    comments = this.props.videoComments.map((comment, index) => {
       let image = comment.snippet.topLevelComment.snippet.authorProfileImageUrl;
       let authorName =
         comment.snippet.topLevelComment.snippet.authorDisplayName;
@@ -32,6 +32,7 @@ class Comments extends Component {
         </div>
       );
     });
+  }
     return <div className="jumbotron">{comments}</div>;
   }
 }

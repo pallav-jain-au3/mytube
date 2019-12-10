@@ -11,8 +11,7 @@ class VideoPlayer extends Component {
     });
   }
   render() {
-    let title = this.props.videoDetail;
-    console.log(title);
+    let videoId = this.props.match.params.videoId;
 
     return (
       <div className="container">
@@ -22,7 +21,7 @@ class VideoPlayer extends Component {
               className="embed-responsive-item"
               width="800"
               height="500"
-              src={`https://www.youtube.com/embed/${this.props.match.params.videoId}?playlist=tgbNymZ7vqY&loop=1`}
+              src={`https://www.youtube.com/embed/${videoId}?playlist=tgbNymZ7vqY&loop=1`}
               frameBorder="0"
               allowFullScreen="allowFullScreen"
               title="player"></iframe>
@@ -33,6 +32,7 @@ class VideoPlayer extends Component {
               {this.props.videoDetail.statistics.viewCount} views{" "}
               <span>&#8226;</span>
             </p>
+            <p>{this.props.videoDetail.snippet.description }</p>
             <Comments id={this.props.match.params.videoId} />
           </div>
         ) : (

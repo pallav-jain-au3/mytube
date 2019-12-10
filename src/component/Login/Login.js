@@ -17,7 +17,7 @@ class Login extends Component {
           <div className="col-md-4 offset-md-4">
             <h4 className="text-danger">Login using your Google account</h4>
             <GoogleLogin
-              clientId="808242103254-9fq0dph9evgt7v4nrvf8nkremls6uu7i.apps.googleusercontent.com"
+              clientId="163944735500-nri0fe3onoq78jqspbhm2v1dlefplu5f.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={this.responseGoogle}
               onFailure={this.responseGoogle}

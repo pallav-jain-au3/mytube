@@ -16,10 +16,11 @@ class Trending extends Component {
   }
 
   render() {
+    let videos = this.props.videos.length ? (<Videos videos = {this.props.videos} />): "loading"
     return (
       <div>
         <h1>This is Trending </h1>
-        <Videos />
+        {videos}
       </div>
     );
   }
