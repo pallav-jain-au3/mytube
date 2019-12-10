@@ -1,10 +1,10 @@
 import {fetchVideos} from '../api/youtube';
-import { store } from '../store'
 
-function videoaReducer(videos = [], action){
+
+function videoReducer(videos = [], action){
 
     if (action.type === "FETCH_VIDEOS"){
-        fetchVideos(store);
+        fetchVideos();
     }
 
     if (action.type === 'VIDEOS_LOADED'){
@@ -16,4 +16,4 @@ function videoaReducer(videos = [], action){
     return videos
 } 
 
-export default videoaReducer;
+export default videoReducer;
